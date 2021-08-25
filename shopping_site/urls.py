@@ -18,20 +18,29 @@ from django.urls import path, include
 from django.conf import settings
 from django.views.static import serve
 from django.conf.urls import url
+from django.conf.urls.static import static
+from django.urls import re_path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('shop/', include('shop.urls')),
     path('', include('shop.urls')),
-]
+    url(r'^admin/', admin.site.urls),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG == False:
-    urlpatterns += [
-        url(r'^products/(?P<path>.*)$', serve, {
-            'document_root':settings.MEDIA_ROOT,
-        }),
-        url(r'^cart/(?P<path>.*)$', serve, {
-            'document_root':settings.MEDIA_ROOT,
-        }),
+# if settings.DEBUG == False:
+#     urlpatterns += [
+#         url(r'^products/(?P<path>.*)$', serve, {
+#             'document_root':settings.MEDIA_ROOT,
+#         }),
+#         url(r'^cart/(?P<path>.*)$', serve, {
+#             'document_root':settings.MEDIA_ROOT,
+#         }),
         
-    ]
+#     ]
+# if settings.DEBUG:
+#     urlpatterns += [
+#         re_path(r'^media/(?P<path>.*)$', serve, {
+#             'document_root': settings.MEDIA_ROOT,
+#         }),
+#     ]

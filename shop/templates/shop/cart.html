@@ -14,7 +14,7 @@
     <tbody>
     {% for p in cart %}
       <tr>
-        <td><img src="{{p.product.image}}" style="width:200px; height:auto;" alt="..."></td>
+        <td><img src="{{p.product.image.url}}" style="width:200px; height:auto;" alt="..."></td>
         <td>{{p.product.title}}</td>
         <td>{{p.product.price}}</td>
         <td>

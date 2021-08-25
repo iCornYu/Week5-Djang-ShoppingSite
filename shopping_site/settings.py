@@ -17,9 +17,10 @@ load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-MEDIA_URL = "/media/"
+MEDIA_URL = "media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'shop/media/shop')
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -29,7 +30,7 @@ MEDIA_URL = "/media/"
 SECRET_KEY = 'django-insecure-3yv_gg!%ag31i7@@^ywsd)gi_$#v)gjlsg&(og#4hkhmr0m)dt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'django-shoppingsite-week5.herokuapp.com']
 
@@ -125,7 +126,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
